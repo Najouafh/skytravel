@@ -1,0 +1,152 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+
+*{
+  margin: 0;
+padding: 0;
+box-sizing: border-box;
+
+}
+
+/* Smooth scrolling for all pages */
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px;
+}
+
+/* Custom scrollbar styling */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+/* Firefox scrollbar */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #888 #f1f1f1;
+}
+
+.container{
+  width: 100vw;
+  min-height: 100vh;
+  background-color: #7bccc760;
+  transition: 0.5s;
+}
+.container.dark{
+  background-color: #1212125b;
+}
+
+/* Section spacing */
+section {
+  min-height: 100vh;
+  scroll-margin-top: 80px;
+}
+
+/* ===== FAVORITES MODAL ===== */
+.favorites-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  z-index: 100000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  animation: modalFadeIn 0.3s ease;
+}
+
+@keyframes modalFadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.favorites-modal {
+  background: linear-gradient(180deg, #0a0a15 0%, #0f0f25 100%);
+  border-radius: 30px;
+  max-width: 900px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+  border: 1px solid rgba(0, 245, 255, 0.2);
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.6), 0 0 60px rgba(0, 245, 255, 0.1);
+  animation: modalSlideIn 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes modalSlideIn {
+  from { 
+    opacity: 0;
+    transform: scale(0.9) translateY(20px);
+  }
+  to { 
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+.favorites-modal-close {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, rgba(239, 68, 68, 0.2), rgba(239, 68, 68, 0.1));
+  border: 1px solid rgba(239, 68, 68, 0.3);
+  color: #ef4444;
+  font-size: 24px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  z-index: 100001;
+}
+
+.favorites-modal-close:hover {
+  background: #ef4444;
+  color: white;
+  transform: rotate(90deg) scale(1.1);
+  box-shadow: 0 8px 25px rgba(239, 68, 68, 0.5);
+}
+
+/* Light mode for modal */
+.container.light .favorites-modal {
+  background: linear-gradient(180deg, #f0f4ff 0%, #e8f0ff 100%);
+  border: 1px solid rgba(0, 245, 255, 0.3);
+}
+
+.container.light .favorites-modal-overlay {
+  background: rgba(0, 0, 0, 0.7);
+}
+
+/* Scrollbar for modal */
+.favorites-modal::-webkit-scrollbar {
+  width: 8px;
+}
+
+.favorites-modal::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.favorites-modal::-webkit-scrollbar-thumb {
+  background: rgba(0, 245, 255, 0.3);
+  border-radius: 4px;
+}
+
+.favorites-modal::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 245, 255, 0.5);
+}
